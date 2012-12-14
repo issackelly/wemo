@@ -172,7 +172,7 @@ class upnp:
 			return False
 
 	#Create new UDP socket on ip, bound to port
-	def createNewListener(self,ip='192.168.1.141',port=1900):
+	def createNewListener(self,ip=gethostbyname(gethostname()),port=1900):
 		try:
 			newsock = socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP)
 			newsock.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
@@ -799,7 +799,7 @@ class upnp:
 def msearch(argc, argv, hp, cycles=99999999):
 	defaultST = "upnp:rootdevice"
 	st = "schemas-upnp-org"
-	myip = '192.168.1.141'
+	myip = gethostbyname(gethostname())
 	lport = hp.port
 
 	if argc >= 3:
