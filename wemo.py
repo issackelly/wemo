@@ -64,7 +64,7 @@ def off():
     """
     Turns off the first switch that it finds.
 
-    BinaryState is set to 'Error' in the case that it was already on.
+    BinaryState is set to 'Error' in the case that it was already off.
     """
     resp = _send('SetBinaryState', {'BinaryState': (0, 'Boolean')})
     tagValue = conn.extractSingleTag(resp, 'BinaryState')
